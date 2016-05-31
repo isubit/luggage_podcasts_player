@@ -4162,7 +4162,7 @@ embed.init($, Player.players);
 
 window.pwp = pwp;
 
-}).call(this,require("oMfpAn"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_ed79f9ae.js","/")
+}).call(this,require("oMfpAn"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_f0ecdc71.js","/")
 },{"../../bower_components/mediaelement/build/mediaelement.js":1,"./controls":7,"./embed":8,"./logging":10,"./modules/chapter":11,"./modules/downloads":12,"./modules/info":13,"./modules/progressbar":14,"./modules/savetime":15,"./modules/share":16,"./player":17,"./tabregistry":22,"./timeline":24,"./url":25,"buffer":2,"oMfpAn":5}],10:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var loglevel = require('loglevel');
@@ -4642,14 +4642,14 @@ function getSummary (summary) {
 function createEpisodeInfo(tab, params) {
   tab.createMainContent(
     '<h2>' + params.title + '</h2>' +
-    '<h3>' + params.subtitle + '</h3>' +
+    //'<h3>' + params.subtitle + '</h3>' +
     getSummary(params.summary) +
     '<p>Duration: ' + timeCode.fromTimeStamp(params.duration) + '</p>' +
-     getPublicationDate(params.publicationDate) +
-    '<p class="info-link">' +
-      'Permalink:<br>' +
-      '<a href="' + params.permalink + '" target="_blank" title="Permalink for Episode">' + params.permalink + '</a>' +
-    '</p>'
+     getPublicationDate(params.publicationDate) //+
+    //'<p class="info-link">' +
+    //  'Permalink:<br>' +
+    //  '<a href="' + params.permalink + '" target="_blank" title="Permalink for Episode">' + params.permalink + '</a>' +
+    //'</p>'
   );
 }
 
@@ -4675,11 +4675,11 @@ function createSubscribeButton(params) {
 function createShowInfo (tab, params) {
   tab.createAside(
     '<h2>' + params.show.title + '</h2>' +
-    '<h3>' + params.show.subtitle + '</h3>' +
+    //'<h3>' + params.show.subtitle + '</h3>' +
     createPosterImage(params.show.poster) +
     createSubscribeButton(params) +
-    '<p class="info-link">Link to the Show:<br>' +
-      '<a href="' + params.show.url + '" target="_blank" title="Link to the Show">' + params.show.url + '</a></p>'
+    '<p class="info-link">Permalink to the Podcast:<br>' +
+      '<a href="' + params.show.url + '" target="_blank" title="Permalink to the Podcast">' + params.show.url + '</a></p>'
   );
 }
 

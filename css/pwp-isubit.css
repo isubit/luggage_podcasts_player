@@ -180,11 +180,11 @@ textarea {
     font-size: 15px; } }
 
 a {
-  color: #425634;
+  color: #900;
   text-decoration: none;
   background: transparent; }
   a:hover, a:focus {
-    color: #678651;
+    color: #e60000;
     text-decoration: none;
     outline: none; }
 
@@ -236,10 +236,10 @@ select {
 
 .button-submit {
   color: #fff;
-  background: #425634;
+  background: #900;
   text-decoration: none;
   speak: none;
-  border: 1px solid #425634;
+  border: 1px solid #900;
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
   border-bottom-right-radius: 4px;
@@ -256,13 +256,13 @@ select {
   -webkit-transition-property: all;
   transition-property: all; }
   .button-submit:hover {
-    background-color: #678651;
-    border: 1px solid #678651;
+    background-color: #e60000;
+    border: 1px solid #e60000;
     color: #fff;
     cursor: pointer; }
   .button-submit:active {
-    background-color: #425634;
-    border: 1px solid #425634; }
+    background-color: #900;
+    border: 1px solid #900; }
 
 .play {
   color: #cccccc;
@@ -326,7 +326,7 @@ button {
   padding: 0;
   border: 0px solid transparent; }
   .container a {
-    color: #425634; }
+    color: #900; }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   /* Retina-specific stuff here */
@@ -370,19 +370,19 @@ progress::-webkit-progress-bar {
 /********** 3. The Progress Bar Value ***************/
 /* IE10 */
 progress {
-  color: #425634; }
+  color: #900; }
 
 /* Firefox */
 progress::-moz-progress-bar {
-  background: #425634; }
+  background: #900; }
 
 /* Chrome */
 progress::-webkit-progress-value {
-  background: #425634; }
+  background: #900; }
 
 /* Polyfill */
 progress[aria-valuenow]:before {
-  background: #425634; }
+  background: #900; }
 
 .progressbar {
   color: #fff;
@@ -938,11 +938,11 @@ progress[aria-valuenow]:before {
     /* Non standard for webkit */
     word-break: break-word; }
   .tabs a {
-    color: #425634; }
+    color: #900; }
     .tabs a:hover, .tabs a:focus {
-      color: #678651; }
+      color: #e60000; }
     .tabs a:active {
-      color: #73965a; }
+      color: red; }
     .tabs a.button-toggle {
       color: #cccccc; }
   .tabs > section {
@@ -2105,32 +2105,32 @@ progress[aria-valuenow]:before {
             padding-left: 20px;
             width: 50px; } }
       .chapters .podlovewebplayer_chapters tr:hover {
-        background: #c6ccc2; }
+        background: #e0b3b3; }
         .chapters .podlovewebplayer_chapters tr:hover .badge {
           color: #fff;
-          background-color: #425634; }
+          background-color: #900; }
         .chapters .podlovewebplayer_chapters tr:hover .chapter-start-time span {
           color: #535353;
           font-weight: 500; }
       .chapters .podlovewebplayer_chapters tr.active,
       .chapters .podlovewebplayer_chapters tr.active:hover .chapters .podlovewebplayer_chapters tr.active:focus {
-        background: #b7bfb2; }
+        background: #d89e9e; }
         .chapters .podlovewebplayer_chapters tr.active .badge,
         .chapters .podlovewebplayer_chapters tr.active:hover .chapters .podlovewebplayer_chapters tr.active:focus .badge {
-          background-color: #425634;
+          background-color: #900;
           color: #fff; }
         .chapters .podlovewebplayer_chapters tr.active .chapter-start-time span,
         .chapters .podlovewebplayer_chapters tr.active:hover .chapters .podlovewebplayer_chapters tr.active:focus .chapter-start-time span {
           color: #535353;
           font-weight: 500; }
       .chapters .podlovewebplayer_chapters tr.chapter:active {
-        background: #b7bfb2; }
+        background: #d89e9e; }
       .chapters .podlovewebplayer_chapters tr td {
         padding: 0 5px;
         vertical-align: middle;
         cursor: pointer !important; }
         .chapters .podlovewebplayer_chapters tr td a {
-          color: #425634;
+          color: #900;
           text-decoration: none; }
       .chapters .podlovewebplayer_chapters tr .chapter-name span {
         font-weight: 500; }
@@ -2141,7 +2141,7 @@ progress[aria-valuenow]:before {
         font-size: 11px;
         white-space: nowrap;
         text-align: right;
-        color: #425634;
+        color: #900;
         padding-right: 10px; }
         @media all and (min-width: 480px) {
           .chapters .podlovewebplayer_chapters tr .chapter-start-time {
@@ -2194,7 +2194,7 @@ progress[aria-valuenow]:before {
         height: auto;
         min-height: 0; } }
   .download .default-poster {
-    background: #425634; }
+    background: #900; }
   .download.button-submit {
     display: block;
     margin: 0 auto 20px auto;
@@ -2457,11 +2457,11 @@ select::-ms-expand {
       .share-select-option:first-of-type {
         margin-right: 25px; } }
   .share-select-option:hover {
-    background-color: #678651; }
+    background-color: #e60000; }
   .share-select-option:active {
-    background-color: #73965a; }
+    background-color: red; }
   .share-select-option:focus, .share-select-option.selected {
-    background-color: #425634; }
+    background-color: #900; }
   .share-select-option:hover, .share-select-option:active, .share-select-option:focus, .share-select-option.selected {
     color: #fff; }
 
