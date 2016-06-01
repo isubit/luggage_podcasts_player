@@ -4162,7 +4162,7 @@ embed.init($, Player.players);
 
 window.pwp = pwp;
 
-}).call(this,require("oMfpAn"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_f0ecdc71.js","/")
+}).call(this,require("oMfpAn"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_d6b32731.js","/")
 },{"../../bower_components/mediaelement/build/mediaelement.js":1,"./controls":7,"./embed":8,"./logging":10,"./modules/chapter":11,"./modules/downloads":12,"./modules/info":13,"./modules/progressbar":14,"./modules/savetime":15,"./modules/share":16,"./player":17,"./tabregistry":22,"./timeline":24,"./url":25,"buffer":2,"oMfpAn":5}],10:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var loglevel = require('loglevel');
@@ -4264,7 +4264,7 @@ function renderRow (chapter, index) {
   return render(
     '<tr class="chapter">' +
       '<td class="chapter-number"><div class="badge">' + (index + 1) + '</div></td>' +
-      '<td class="chapter-name"><div>' + chapter.code + '</div>' + (!!chapter.url ? '<div><a target="_parent" href="' + chapter.url + '">' + chapter.url + '</a></div>' : '') + '</td>' +
+      '<td class="chapter-name"><div>' + chapter.code + '</div>' + (!!chapter.url ? '<div><a target="_blank" href="' + chapter.url + '">' + chapter.url + '</a></div>' : '') + '</td>' +
       '<td class="chapter-start-time"><div>' + chapter.startTime + '</div></td>' +
     '</tr>'
   );
@@ -4634,7 +4634,10 @@ function getPublicationDate(rawDate) {
 
 function getSummary (summary) {
   if (summary && summary.length > 0) {
-    return '<p>' + summary + '</p>';
+    var element = $('<p></p>');
+    element.append(summary);
+    element.find('a').attr('target', '_blank');
+    return element.html();
   }
   return '';
 }
