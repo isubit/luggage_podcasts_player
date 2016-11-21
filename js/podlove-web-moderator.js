@@ -1404,10 +1404,10 @@ process.chdir = function (dir) {
 */
 (function (root, definition) {
     "use strict";
-    if (typeof module === 'object' && module.exports && typeof require === 'function') {
-        module.exports = definition();
-    } else if (typeof define === 'function' && typeof define.amd === 'object') {
+    if (typeof define === 'function' && define.amd) {
         define(definition);
+    } else if (typeof module === 'object' && module.exports) {
+        module.exports = definition();
     } else {
         root.log = definition();
     }
@@ -1633,8 +1633,6 @@ var log = require('./logging').getLogger('Moderator');
 
 var $ = jQuery,
     IFRAME_HEIGHT_DEFAULT = 300,
-    IFRAME_HEIGHT_MIN = 100,
-    IFRAME_HEIGHT_MAX = 3000,
     players = {},
     firstPlayer = true,
     metadataList = 'pwp_metadata',
@@ -1642,34 +1640,6 @@ var $ = jQuery,
     timerange = url.checkCurrent(); // timecode
 
 var options; // global options
-
-function checkBoundaries(value, min, max) {
-  return (value < min || value > max);
-}
-
-/**
- * Sanitize player height
- * @param {Number} height Iframe height
- * @returns {Number} sanitized height
- */
-function getPlayerHeight(height) {
-  if (!height || isNaN(height)) {
-    log.info('Set frame height to default');
-    return IFRAME_HEIGHT_DEFAULT;
-  }
-  if (checkBoundaries(height, IFRAME_HEIGHT_MIN, IFRAME_HEIGHT_MAX)) {
-    log.debug('Frame height %d out of bounds.', height);
-  }
-  return cap(height, IFRAME_HEIGHT_MIN, IFRAME_HEIGHT_MAX);
-}
-
-/**
- * Sanitize player width
- * @returns {string} defaults to '100%'
- */
-function getPlayerWidth() {
-  return '100%';
-}
 
 /**
  * strip hash from location
@@ -1714,13 +1684,14 @@ function getIframeReplacement() {
 
   $frame = $('<iframe>', {
     src: source,
-    height: getPlayerHeight($element.data('podlove-web-player-height')),
-    width: getPlayerWidth($element.data('podlove-web-player-width')),
-    className: 'podlove-webplayer-frame',
+    height: IFRAME_HEIGHT_DEFAULT,
+    width: '100%',
+    class: 'podlove-webplayer-frame',
     css: {
       border: 'none',
       overflow: 'hidden'
-    }
+    },
+    scrolling: 'no'
   });
 
   frame = $frame.get(0);
@@ -1800,9 +1771,6 @@ function handleMessage(event) {
     pausePlayersExceptOne(id);
   }
 
-  if (action === 'resize') {
-    player.frame.height(getPlayerHeight(argumentObject));
-  }
 }
 
 // receive messages from embedded players
@@ -1821,8 +1789,7 @@ $.fn.podlovewebplayer = function (opts) {
 window.pwp = {
   players: players
 };
-
-}).call(this,require("oMfpAn"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_3d96a596.js","/")
+}).call(this,require("oMfpAn"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_a9af354e.js","/")
 },{"./logging":7,"./url":9,"./util":10,"buffer":1,"oMfpAn":4}],7:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var loglevel = require('loglevel');

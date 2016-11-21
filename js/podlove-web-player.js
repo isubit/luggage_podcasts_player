@@ -3323,10 +3323,10 @@ process.chdir = function (dir) {
 */
 (function (root, definition) {
     "use strict";
-    if (typeof module === 'object' && module.exports && typeof require === 'function') {
-        module.exports = definition();
-    } else if (typeof define === 'function' && typeof define.amd === 'object') {
+    if (typeof define === 'function' && define.amd) {
         define(definition);
+    } else if (typeof module === 'object' && module.exports) {
+        module.exports = definition();
     } else {
         root.log = definition();
     }
@@ -3654,7 +3654,6 @@ var log = require('./logging').getLogger('Embed');
 // everything for an embedded player
 var
   players = [],
-  lastHeight = 0,
   $body;
 
 function postToOpener(obj) {
@@ -3690,19 +3689,6 @@ function waitForMetadata (callback) {
   $(window).on('message', metaDataListener);
 }
 
-function pollHeight() {
-  var newHeight = $body.height();
-  if (lastHeight !== newHeight) {
-    postToOpener({
-      action: 'resize',
-      arg: newHeight
-    });
-  }
-
-  lastHeight = newHeight;
-  requestAnimationFrame(pollHeight, document.body);
-}
-
 /**
  * initialize embed functionality
  * @param {function} $ jQuery
@@ -3713,7 +3699,6 @@ function init($, playerList) {
   players = playerList;
   $body = $(document.body);
   $(window).on('message', messageListener);
-  pollHeight();
 }
 
 module.exports = {
@@ -4162,7 +4147,7 @@ embed.init($, Player.players);
 
 window.pwp = pwp;
 
-}).call(this,require("oMfpAn"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_d6b32731.js","/")
+}).call(this,require("oMfpAn"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_906f7b1f.js","/")
 },{"../../bower_components/mediaelement/build/mediaelement.js":1,"./controls":7,"./embed":8,"./logging":10,"./modules/chapter":11,"./modules/downloads":12,"./modules/info":13,"./modules/progressbar":14,"./modules/savetime":15,"./modules/share":16,"./player":17,"./tabregistry":22,"./timeline":24,"./url":25,"buffer":2,"oMfpAn":5}],10:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var loglevel = require('loglevel');
