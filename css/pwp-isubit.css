@@ -2878,3 +2878,21 @@ select::-ms-expand {
 
 .tabs > section {
   overflow-y: auto; }
+
+/*
+ * Non theme-specific CSS
+ *
+ */
+
+.podlove-player-wrapper .main p,
+.podlove-player-wrapper .main ul,
+.podlove-player-wrapper .main ol {
+  font-size: 16px;
+}
+
+.podlove-player-wrapper .main ul,
+.podlove-player-wrapper .main ol {
+  list-style: disc;
+  margin-bottom: 10px;
+  padding-left: 50px;
+}
